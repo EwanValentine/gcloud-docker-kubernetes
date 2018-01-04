@@ -5,7 +5,10 @@ MAINTAINER Ewan Valentine <ewan.valentine89@gmail.com>
 RUN apt-get update && apt-get -y install \
     curl gnupg2 lsb-release wget \
     git ssh tar gzip ca-certificates \
-    software-properties-common
+    software-properties-common python-pip python-yaml python3-pip jq
+
+RUN pip install cloudflare && pip3 install pyyaml
+
 
 # Install Gcloud
 RUN export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)" && \
